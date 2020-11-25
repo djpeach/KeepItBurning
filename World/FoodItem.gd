@@ -3,6 +3,8 @@ extends Area2D
 onready var sprite = $Sprite
 onready var collider = $CollisionShape2D
 
+var quantity = 10
+
 func _ready():
 	var rand = randi() & 2
 	sprite.flip_h = false if rand == 0 else true
@@ -10,6 +12,6 @@ func _ready():
 
 
 func pickup():
-	if Globals.foodValue <= 90:
-		Globals.foodValue += 10
+	if Globals.foodValue + quantity <= 100:
+		Globals.foodValue += quantity
 		queue_free()

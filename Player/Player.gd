@@ -57,12 +57,10 @@ remotesync func setAnimation(animation):
 
 
 func _on_OverlapDetection_area_entered(area):
-	print("overlapped")
 	if is_network_master():
 		if area.get_groups().has("resource"):
 			assert(area.has_method("pickup"))
 			area.pickup()
 		elif area.get_groups().has("interactable"):
-			print("interacted")
 			assert(area.has_method("interact"))
 			area.interact()
