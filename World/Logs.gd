@@ -1,4 +1,6 @@
 extends Area2D
 
-func get_type():
-	return "Logs"
+func pickup():
+	if Globals.logsValue <= 20:
+		Globals.logsValue += 5
+		queue_free()
