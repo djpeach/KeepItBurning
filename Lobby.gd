@@ -48,7 +48,7 @@ func close_connection():
 		emit_signal("server_disconnected", "Left Server")
 
 func init_game():
-	assert(get_tree().is_network_server())
+	assert(players.empty() or get_tree().is_network_server())
 	
 	var spawn_points = {}
 	spawn_points[get_tree().get_network_unique_id()] = 0
@@ -96,7 +96,9 @@ remote func prepare_for_game(spawn_points, is_host):
 	var world = load("res://World/World.tscn").instance()
 	get_tree().get_root().add_child(world)
 	
-	if get_tree().is_network_server():
+	if players.empty():
+		get_tree().get_root().get_node("BootScreen").hide()
+	elif get_tree().is_network_server():
 		get_tree().get_root().get_node("HostScreen").hide()
 	else:
 		get_tree().get_root().get_node("JoinScreen").hide()
