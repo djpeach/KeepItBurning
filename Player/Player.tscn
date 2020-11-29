@@ -116,7 +116,7 @@ graph_offset = Vector2( 0, 61.7391 )
 
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 2
-collision_mask = 18
+collision_mask = 56
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -130,7 +130,7 @@ vframes = 10
 hframes = 6
 frame = 11
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="KinematicCollider" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource( 1 )
 
@@ -147,3 +147,12 @@ parameters/playback = SubResource( 16 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 smoothing_enabled = true
+
+[node name="OverlapDetection" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 56
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OverlapDetection"]
+rotation = 1.5708
+shape = SubResource( 1 )
+[connection signal="area_entered" from="OverlapDetection" to="." method="_on_OverlapDetection_area_entered"]
