@@ -1,0 +1,26 @@
+[gd_scene format=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Button" type="Button" parent="."]
+margin_left = 98.0868
+margin_top = 97.7403
+margin_right = 217.087
+margin_bottom = 117.74
+text = "Back to Home"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 118.42
+margin_top = 16.2757
+margin_right = 209.42
+margin_bottom = 71.2757
+text = "Survived for:
+1 day"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

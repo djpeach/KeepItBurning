@@ -4,6 +4,7 @@ onready var fuelBar = $CanvasLayer/Control/FuelBar
 onready var foodBar = $CanvasLayer/Control/FoodBar
 onready var logsCounter = $CanvasLayer/Control/LogsCounter/Value
 onready var foodTimer = $FoodConsumptionTimer
+onready var sceneManager = $Utils
 
 func _ready():
 	var viewport_size = get_viewport_rect().size.x * get_viewport_transform().get_scale().x
@@ -15,12 +16,7 @@ func _ready():
 
 func _process(delta):
 	if Globals.fuelbarValue <= 0:
-		# also do scoring
-		# game over (SceneManager.change_scene(<game over scene>))
-		pass
-
-func  _on_update_logs_value(val):
-	logsCounter.text = String(val)
+		SceneManager.change_scene("res://ControlScenes/JoinScreen.tscn")
 
 func _on_FuelBurnTimer_timeout():
 	Globals.fuelbarValue -= 0.01
