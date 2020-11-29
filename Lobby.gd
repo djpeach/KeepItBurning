@@ -97,7 +97,8 @@ remote func prepare_for_game(spawn_points, is_host):
 	get_tree().get_root().add_child(world)
 	
 	if players.empty():
-		get_tree().get_root().get_node("BootScreen").hide()
+		print("*")
+		#get_tree().get_root().get_node("BootScreen").hide()
 	elif get_tree().is_network_server():
 		get_tree().get_root().get_node("HostScreen").hide()
 	else:
