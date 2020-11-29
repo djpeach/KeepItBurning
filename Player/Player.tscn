@@ -110,6 +110,7 @@ states/walk/node = SubResource( 8 )
 states/walk/position = Vector2( 352.5, 75.5 )
 transitions = [ "idle", "walk", SubResource( 9 ), "walk", "idle", SubResource( 10 ), "idle", "attack", SubResource( 11 ), "attack", "idle", SubResource( 12 ), "walk", "attack", SubResource( 13 ), "attack", "walk", SubResource( 14 ) ]
 start_node = "idle"
+graph_offset = Vector2( 0, 61.7391 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=16]
 
@@ -127,7 +128,7 @@ scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 1 )
 vframes = 10
 hframes = 6
-frame = 32
+frame = 11
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708

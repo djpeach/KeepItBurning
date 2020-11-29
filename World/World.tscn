@@ -266,7 +266,7 @@ position = Vector2( 86.4331, -17.9874 )
 position = Vector2( 0, -13.6756 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 20 )
-frame = 14
+frame = 5
 playing = true
 [connection signal="timeout" from="FuelBurnTimer" to="." method="_on_FuelBurnTimer_timeout"]
 [connection signal="timeout" from="FoodConsumptionTimer" to="." method="_on_FoodConsumptionTimer_timeout"]
