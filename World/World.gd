@@ -15,6 +15,7 @@ func _ready():
 	EventBus.connect("update_logs_value", self, "_on_update_logs_value")
 
 func _process(delta):
+	healthBar.value = Globals.healthValue
 	if Globals.fuelbarValue <= 0:
 		# also do scoring
 		# game over (SceneManager.change_scene(<game over scene>))
@@ -32,7 +33,6 @@ func _on_FoodConsumptionTimer_timeout():
 	foodBar.value = Globals.foodValue
 	if Globals.foodValue <= 0:
 		Globals.healthValue = max(Globals.healthValue - 0.05, 0)
-		healthBar.value = Globals.healthValue
 		if Globals.healthValue <= 0:
 			# SceneManager.change_scene("game_over")
 			pass

@@ -12,6 +12,7 @@ func _ready():
 
 func pickup(is_network_master):
 	if is_network_master:
+		Globals.healthValue = min(Globals.healthValue + 5, 100)
 		if Globals.foodValue + quantity <= 100:
 			Globals.foodValue += quantity
 			rpc("remove")
