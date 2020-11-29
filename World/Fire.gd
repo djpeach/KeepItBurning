@@ -5,6 +5,7 @@ func interact(is_network_master):
 		var overhead = Globals.fuelbarValue + Globals.logsValue - 100
 		rpc("update_fuel_bar", clamp(Globals.fuelbarValue + Globals.logsValue, 0, 100))
 		Globals.logsValue = max(int(overhead), 0)
+		EventBus.emit_signal("update_logs_value", Globals.logsValue)
 
 remotesync func update_fuel_bar(val):
 	Globals.fuelbarValue = val

@@ -24,6 +24,7 @@ config/icon="res://icon.png"
 Lobby="*res://Lobby.gd"
 Globals="*res://Globals.gd"
 SceneManager="*res://Utils/SceneManager.tscn"
+EventBus="*res://EventBus.gd"
 
 [debug]
 
@@ -88,6 +89,9 @@ attack={
 2d_physics/layer_4="Resources"
 2d_physics/layer_5="Environment"
 2d_physics/layer_6="Interactables"
+2d_physics/layer_7="EnemeyHurtBox"
+2d_physics/layer_8="PlayerHurtBox"
+2d_physics/layer_9="PlayerHitBox"
 
 [rendering]
 

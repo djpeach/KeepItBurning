@@ -46,6 +46,7 @@ func _physics_process(_delta):
 	$Sprite.flip_h = flipped
 	$Sprite.position.x = -2.5 if flipped else 5.0
 	$KinematicCollider.position.x = 2.5 if flipped else 0.0
+	$HitBox.position.x = -16 if flipped else 5
 	
 	# to avoid jittering
 	puppet_velocity = move_and_slide(velocity)
@@ -55,7 +56,6 @@ func _physics_process(_delta):
 
 remotesync func setAnimation(animation):
 	animState.travel(animation)
-
 
 func _on_OverlapDetection_area_entered(area):
 	var is_network_master = is_network_master()
