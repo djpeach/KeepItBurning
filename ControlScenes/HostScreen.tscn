@@ -67,6 +67,7 @@ text = "Your username:"
 margin_top = 14.0
 margin_right = 113.0
 margin_bottom = 38.0
+text = "Player1"
 
 [node name="ServerControlButton" type="Button" parent="Control/HostDetails"]
 margin_top = 121.0

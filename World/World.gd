@@ -2,6 +2,7 @@ extends Node2D
 
 onready var fuelBar = $CanvasLayer/Control/FuelBar
 onready var foodBar = $CanvasLayer/Control/FoodBar
+onready var healthBar = $CanvasLayer/Control/HealthBar
 onready var logsCounter = $CanvasLayer/Control/LogsCounter/Value
 onready var foodTimer = $FoodConsumptionTimer
 
@@ -27,7 +28,13 @@ func _on_FuelBurnTimer_timeout():
 	fuelBar.value = Globals.fuelbarValue
 
 func _on_FoodConsumptionTimer_timeout():
-	Globals.foodValue -= 0.01
+	Globals.foodValue = max(Globals.foodValue - 0.01, 0)
 	foodBar.value = Globals.foodValue
+	if Globals.foodValue <= 0:
+		Globals.healthValue = max(Globals.healthValue - 0.05, 0)
+		healthBar.value = Globals.healthValue
+		if Globals.healthValue <= 0:
+			# SceneManager.change_scene("game_over")
+			pass
 
 
