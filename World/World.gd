@@ -5,7 +5,9 @@ onready var foodBar = $CanvasLayer/Control/FoodBar
 onready var healthBar = $CanvasLayer/Control/HealthBar
 onready var logsCounter = $CanvasLayer/Control/LogsCounter/Value
 onready var foodTimer = $FoodConsumptionTimer
-onready var sceneManager = $Utils
+onready var currentScore = 0
+onready var scoreLabel = $CanvasLayer/Control/Score
+onready var ended = false
 
 func _ready():
 	var viewport_size = get_viewport_rect().size.x * get_viewport_transform().get_scale().x
@@ -16,12 +18,18 @@ func _ready():
 	EventBus.connect("update_logs_value", self, "_on_update_logs_value")
 
 func _process(delta):
-	if Globals.fuelbarValue <= 0:
-		SceneManager.change_scene("res://ControlScenes/JoinScreen.tscn")
+	Globals.score += 0.002
+	if floor(Globals.score) > currentScore:
+		scoreLabel.text = "Days survived: "+String(floor(Globals.score))
+	logsCounter.text = String(Globals.logsValue)
+	if Globals.fuelbarValue <= 0 and ended == false:
+		SceneManager.change_scene("res://ControlScenes/EndScreen.tscn")
+		ended = true
 
 func _on_FuelBurnTimer_timeout():
 	Globals.fuelbarValue -= 0.01
 	fuelBar.value = Globals.fuelbarValue
+
 
 func _on_FoodConsumptionTimer_timeout():
 	Globals.foodValue = max(Globals.foodValue - 0.01, 0)

@@ -8,4 +8,5 @@ func _on_JoinButton_pressed():
 
 
 func _on_SinglePlayerButton_pressed():
-	Lobby.init_game()
+	#Lobby.init_game()
+	SceneManager.change_scene("res://ControlScenes/EndScreen.tscn")

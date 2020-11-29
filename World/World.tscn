@@ -177,6 +177,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Score" type="Label" parent="CanvasLayer/Control"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = -14.0
+margin_right = 106.0
+text = "Days Survived: 0"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="FuelBurnTimer" type="Timer" parent="."]
 wait_time = 0.05
 autostart = true
@@ -230,7 +242,7 @@ position = Vector2( 86.4331, -17.9874 )
 
 [node name="Players" type="YSort" parent="YSort"]
 
-[node name="Fire" parent="." instance=ExtResource( 10 )]
+[node name="Fire" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 0, -11 )
 [connection signal="timeout" from="FuelBurnTimer" to="." method="_on_FuelBurnTimer_timeout"]
 [connection signal="timeout" from="FoodConsumptionTimer" to="." method="_on_FoodConsumptionTimer_timeout"]
