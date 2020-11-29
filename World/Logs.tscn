@@ -6,7 +6,11 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3.82371, 4.38151 )
 
-[node name="Logs" type="Area2D"]
+[node name="Logs" type="Area2D" groups=[
+"resource",
+]]
+collision_layer = 8
+collision_mask = 0
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
