@@ -6,6 +6,8 @@ onready var healthBar = $CanvasLayer/Control/HealthBar
 onready var logsCounter = $CanvasLayer/Control/LogsCounter/Value
 onready var foodTimer = $FoodConsumptionTimer
 
+var enemy1 = preload("res://Enemies/Minotaur.tscn")
+
 func _ready():
 	var viewport_size = get_viewport_rect().size.x * get_viewport_transform().get_scale().x
 	fuelBar.margin_left = (viewport_size / get_viewport_transform().get_scale().x) * fuelBar.get_transform().get_scale().x
@@ -38,3 +40,22 @@ func _on_FoodConsumptionTimer_timeout():
 			pass
 
 
+func _on_EnemySpawnTimer_timeout():
+	#makes invisible box where enemies are able to spawn
+	var enemyPosition = Vector2(rand_range(-160, 670), rand_range(-90, 390))
+	
+	var player = get_node("YSort/Players")
+	var e = enemy1.instance()
+	var pos = player.position
+	if randf() < 0.5:
+	# On the left
+		pos.x -= rand_range(50.0, 200.0)
+	else:
+	# On the right
+		pos.x += rand_range(50.0, 200.0)
+
+	e.position = pos
+	add_child(e)
+	
+	
+	
