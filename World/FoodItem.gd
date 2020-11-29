@@ -10,8 +10,11 @@ func _ready():
 	sprite.flip_h = false if rand == 0 else true
 	collider.rotate(PI / 4 if rand == 0 else -PI / 4)
 
+func pickup(is_network_master):
+	if is_network_master:
+		if Globals.foodValue + quantity <= 100:
+			Globals.foodValue += quantity
+			rpc("remove")
 
-func pickup():
-	if Globals.foodValue + quantity <= 100:
-		Globals.foodValue += quantity
-		queue_free()
+remotesync func remove():
+	queue_free()
