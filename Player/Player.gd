@@ -56,7 +56,6 @@ func _physics_process(_delta):
 remotesync func setAnimation(animation):
 	animState.travel(animation)
 
-
 func _on_OverlapDetection_area_entered(area):
 	var is_network_master = is_network_master()
 	if area.get_groups().has("resource"):
