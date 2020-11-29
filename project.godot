@@ -24,6 +24,7 @@ config/icon="res://icon.png"
 Lobby="*res://Lobby.gd"
 Globals="*res://Globals.gd"
 SceneManager="*res://Utils/SceneManager.tscn"
+EventBus="*res://EventBus.gd"
 
 [debug]
 

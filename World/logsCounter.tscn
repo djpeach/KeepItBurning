@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Utils/new_theme.tres" type="Theme" id=1]
+[ext_resource path="res://Utils/label_bg.png" type="Texture" id=2]
+[ext_resource path="res://World/logs.png" type="Texture" id=3]
+
+[node name="LogsCounter" type="NinePatchRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -94.0
+margin_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 2 )
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Image" type="TextureRect" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -128.0
+margin_top = -64.0
+margin_bottom = 64.0
+size_flags_horizontal = 5
+size_flags_vertical = 5
+texture = ExtResource( 3 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Value" type="Label" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -67.0
+margin_right = 125.0
+margin_bottom = 68.0
+theme = ExtResource( 1 )
+text = "10"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

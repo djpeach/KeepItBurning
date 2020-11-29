@@ -1,4 +1,8 @@
-[gd_scene load_steps=32 format=2]
+<<<<<<< HEAD
+[gd_scene load_steps=15 format=2]
+=======
+[gd_scene load_steps=12 format=2]
+>>>>>>> 90606e294e55337cdbf88fd91ddde83a5d8837b9
 
 [ext_resource path="res://World/tileset.png" type="Texture" id=1]
 [ext_resource path="res://World/bg.png" type="Texture" id=2]
@@ -9,8 +13,13 @@
 [ext_resource path="res://World/FoodItem.tscn" type="PackedScene" id=7]
 [ext_resource path="res://World/fuel_bar.png" type="Texture" id=8]
 [ext_resource path="res://World/food_bar.png" type="Texture" id=9]
-[ext_resource path="res://World/fire.png" type="Texture" id=10]
-[ext_resource path="res://Minotaur/Minotaur.tscn" type="PackedScene" id=11]
+[ext_resource path="res://World/Fire.tscn" type="PackedScene" id=10]
+<<<<<<< HEAD
+[ext_resource path="res://Utils/label_bg.png" type="Texture" id=11]
+[ext_resource path="res://World/logs.png" type="Texture" id=12]
+[ext_resource path="res://Utils/new_theme.tres" type="Theme" id=13]
+=======
+>>>>>>> 90606e294e55337cdbf88fd91ddde83a5d8837b9
 
 [sub_resource type="TileSet" id=1]
 0/name = "tileset.png 0"
@@ -37,109 +46,12 @@
 0/shapes = [  ]
 0/z_index = 0
 
-[sub_resource type="AtlasTexture" id=2]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 0, 0, 150, 245 )
-
-[sub_resource type="AtlasTexture" id=3]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 150, 0, 150, 245 )
-
-[sub_resource type="AtlasTexture" id=4]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 300, 0, 150, 245 )
-
-[sub_resource type="AtlasTexture" id=5]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 450, 0, 150, 245 )
-
-[sub_resource type="AtlasTexture" id=6]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 600, 0, 150, 245 )
-
-[sub_resource type="AtlasTexture" id=7]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 750, 0, 150, 245 )
-
-[sub_resource type="AtlasTexture" id=8]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 900, 0, 150, 245 )
-
-[sub_resource type="AtlasTexture" id=9]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 1050, 0, 150, 245 )
-
-[sub_resource type="AtlasTexture" id=10]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 1200, 0, 150, 245 )
-
-[sub_resource type="AtlasTexture" id=11]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 0, 245, 150, 245 )
-
-[sub_resource type="AtlasTexture" id=12]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 150, 245, 150, 245 )
-
-[sub_resource type="AtlasTexture" id=13]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 300, 245, 150, 245 )
-
-[sub_resource type="AtlasTexture" id=14]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 450, 245, 150, 245 )
-
-[sub_resource type="AtlasTexture" id=15]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 600, 245, 150, 245 )
-
-[sub_resource type="AtlasTexture" id=16]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 750, 245, 150, 245 )
-
-[sub_resource type="AtlasTexture" id=17]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 900, 245, 150, 245 )
-
-[sub_resource type="AtlasTexture" id=18]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 1050, 245, 150, 245 )
-
-[sub_resource type="AtlasTexture" id=19]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 1200, 245, 150, 245 )
-
-[sub_resource type="SpriteFrames" id=20]
-animations = [ {
-"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ) ],
-"loop": true,
-"name": "default",
-"speed": 10.0
-} ]
-
 [node name="World" type="Node2D"]
 position = Vector2( 124.229, 101.723 )
 script = ExtResource( 3 )
 
 [node name="Background" type="Sprite" parent="."]
+position = Vector2( -6.10352e-05, 84.0048 )
 scale = Vector2( 0.125, 0.125 )
 texture = ExtResource( 2 )
 region_enabled = true
@@ -220,6 +132,57 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="LogsCounter" type="NinePatchRect" parent="CanvasLayer/Control"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -23.97
+margin_top = -77.4056
+margin_right = 217.03
+margin_bottom = 56.5945
+grow_horizontal = 2
+grow_vertical = 2
+rect_scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 11 )
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Image" type="TextureRect" parent="CanvasLayer/Control/LogsCounter"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -128.0
+margin_top = -64.0
+margin_bottom = 64.0
+size_flags_horizontal = 5
+size_flags_vertical = 5
+texture = ExtResource( 12 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Value" type="Label" parent="CanvasLayer/Control/LogsCounter"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -67.0
+margin_right = 125.0
+margin_bottom = 71.0
+theme = ExtResource( 13 )
+text = "10"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="FuelBurnTimer" type="Timer" parent="."]
 wait_time = 0.05
 autostart = true
@@ -252,7 +215,19 @@ position = Vector2( -51.6045, -44.8922 )
 position = Vector2( -87.7257, -125.111 )
 
 [node name="Logs" parent="Resources" instance=ExtResource( 4 )]
-position = Vector2( 73.2863, -46.4126 )
+position = Vector2( 16.1819, 55.9978 )
+
+[node name="Logs2" parent="Resources" instance=ExtResource( 4 )]
+position = Vector2( -135.546, -10.7813 )
+
+[node name="Logs3" parent="Resources" instance=ExtResource( 4 )]
+position = Vector2( -14.494, -107.292 )
+
+[node name="Logs4" parent="Resources" instance=ExtResource( 4 )]
+position = Vector2( 249.791, -15.5007 )
+
+[node name="Logs5" parent="Resources" instance=ExtResource( 4 )]
+position = Vector2( 145.493, -114.136 )
 
 [node name="YSort" type="YSort" parent="."]
 
@@ -261,22 +236,7 @@ position = Vector2( 86.4331, -17.9874 )
 
 [node name="Players" type="YSort" parent="YSort"]
 
-[node name="Minotaur" parent="YSort" instance=ExtResource( 11 )]
-position = Vector2( -183.437, -199.652 )
-
-[node name="Minotaur2" parent="YSort" instance=ExtResource( 11 )]
-position = Vector2( 155.062, -47.0893 )
-
-[node name="Minotaur3" parent="YSort" instance=ExtResource( 11 )]
-position = Vector2( -110.139, 191.142 )
-
-[node name="Node2D" type="Node2D" parent="YSort"]
-
-[node name="Fire" type="AnimatedSprite" parent="YSort/Node2D"]
-position = Vector2( 0, -13.6756 )
-scale = Vector2( 0.2, 0.2 )
-frames = SubResource( 20 )
-frame = 10
-playing = true
+[node name="Fire" parent="." instance=ExtResource( 10 )]
+position = Vector2( 0, -11 )
 [connection signal="timeout" from="FuelBurnTimer" to="." method="_on_FuelBurnTimer_timeout"]
 [connection signal="timeout" from="FoodConsumptionTimer" to="." method="_on_FoodConsumptionTimer_timeout"]

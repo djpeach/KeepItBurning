@@ -45,8 +45,9 @@ func _physics_process(_delta):
 		
 	$Sprite.flip_h = flipped
 	$Sprite.position.x = -2.5 if flipped else 5.0
-	$CollisionShape2D.position.x = 2.5 if flipped else 0.0
+	$KinematicCollider.position.x = 2.5 if flipped else 0.0
 	
+	# to avoid jittering
 	puppet_velocity = move_and_slide(velocity)
 	if not is_network_master():
 		puppet_position = position
@@ -54,7 +55,12 @@ func _physics_process(_delta):
 
 remotesync func setAnimation(animation):
 	animState.travel(animation)
-	
-func increment_food():
-	if is_network_master():
-		Globals.foodValue = clamp(Globals.foodValue + 10, 0, 100)
+
+func _on_OverlapDetection_area_entered(area):
+	var is_network_master = is_network_master()
+	if area.get_groups().has("resource"):
+		assert(area.has_method("pickup"))
+		area.pickup(is_network_master)
+	elif area.get_groups().has("interactable"):
+		assert(area.has_method("interact"))
+		area.interact(is_network_master)
