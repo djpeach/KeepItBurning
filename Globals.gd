@@ -1,3 +1,5 @@
 extends Node
 
-var foodValue = 50.0
+var foodValue = 90.0
+var logsValue = 20
+var fuelbarValue = 20.0
