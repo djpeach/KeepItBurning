@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Minotaur.png-b8a2afca24b95e634a5dd47ecdfdd071.stex"
+path="res://.import/Minotaur.png-b2103ca01dd4ec32ff8e0de644c88b49.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Minotaur/Minotaur.png"
-dest_files=[ "res://.import/Minotaur.png-b8a2afca24b95e634a5dd47ecdfdd071.stex" ]
+source_file="res://Enemies/Minotaur.png"
+dest_files=[ "res://.import/Minotaur.png-b2103ca01dd4ec32ff8e0de644c88b49.stex" ]
 
 [params]
 

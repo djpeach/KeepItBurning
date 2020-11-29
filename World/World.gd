@@ -13,6 +13,12 @@ func _ready():
 	logsCounter.text = String(Globals.logsValue)
 	EventBus.connect("update_logs_value", self, "_on_update_logs_value")
 
+func _process(delta):
+	if Globals.fuelbarValue <= 0:
+		# also do scoring
+		# game over (SceneManager.change_scene(<game over scene>))
+		pass
+
 func  _on_update_logs_value(val):
 	logsCounter.text = String(val)
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://World/tileset.png" type="Texture" id=1]
 [ext_resource path="res://World/bg.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://World/food_bar.png" type="Texture" id=9]
 [ext_resource path="res://World/Fire.tscn" type="PackedScene" id=10]
 [ext_resource path="res://World/logsCounter.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Enemies/Minotaur.tscn" type="PackedScene" id=12]
 
 [sub_resource type="TileSet" id=1]
 0/name = "tileset.png 0"
@@ -172,5 +173,9 @@ position = Vector2( 86.4331, -17.9874 )
 [node name="Players" type="YSort" parent="YSort"]
 
 [node name="Fire" parent="YSort" instance=ExtResource( 10 )]
+
+[node name="Minotaur" parent="YSort" instance=ExtResource( 12 )]
+position = Vector2( 200.911, -39.467 )
+scale = Vector2( 0.15, 0.15 )
 [connection signal="timeout" from="FuelBurnTimer" to="." method="_on_FuelBurnTimer_timeout"]
 [connection signal="timeout" from="FoodConsumptionTimer" to="." method="_on_FoodConsumptionTimer_timeout"]
