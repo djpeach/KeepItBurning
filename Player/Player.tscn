@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Player/Barbarian.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://CollisionShapes/HitBox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://CollisionShapes/HurtBox.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 3.27383
@@ -131,6 +132,40 @@ graph_offset = Vector2( -292, -128.261 )
 radius = 53.0672
 height = 125.208
 
+[sub_resource type="CapsuleShape2D" id=18]
+radius = 5.48093
+height = 11.8563
+
+[sub_resource type="Animation" id=19]
+resource_name = "Blink"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false, true, false, true, false, true ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.7 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ false ],
+"method": "set_invincible"
+} ]
+}
+
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 2
 collision_mask = 56
@@ -177,11 +212,24 @@ position = Vector2( 5, -10 )
 scale = Vector2( 0.1, 0.1 )
 monitorable = false
 collision_layer = 256
-damage_value = 3
+damage_value = 5
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
 position = Vector2( 64.7668, 31.9836 )
 shape = SubResource( 17 )
+
+[node name="HurtBox" parent="." instance=ExtResource( 4 )]
+collision_mask = 512
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2( -0.215195, -7.96212 )
+shape = SubResource( 18 )
+
+[node name="BlinkPlayer" type="AnimationPlayer" parent="."]
+anims/Blink = SubResource( 19 )
 [connection signal="area_entered" from="OverlapDetection" to="." method="_on_OverlapDetection_area_entered"]
+[connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
 
 [editable path="HitBox"]
+
+[editable path="HurtBox"]

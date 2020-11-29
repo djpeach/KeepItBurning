@@ -140,6 +140,10 @@ autostart = true
 wait_time = 0.01
 autostart = true
 
+[node name="EnemySpawnTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
 [node name="Resources" type="Node2D" parent="."]
 
 [node name="FoodItem" parent="Resources" instance=ExtResource( 7 )]
@@ -177,10 +181,6 @@ position = Vector2( 86.4331, -17.9874 )
 
 [node name="Minotaur" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 200.911, -39.467 )
-
-[node name="EnemySpawnTimer" type="Timer" parent="."]
-wait_time = 2.0
-autostart = true
 [connection signal="timeout" from="FuelBurnTimer" to="." method="_on_FuelBurnTimer_timeout"]
 [connection signal="timeout" from="FoodConsumptionTimer" to="." method="_on_FoodConsumptionTimer_timeout"]
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_EnemySpawnTimer_timeout"]
