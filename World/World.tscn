@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://World/tileset.png" type="Texture" id=1]
 [ext_resource path="res://World/bg.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://World/fuel_bar.png" type="Texture" id=8]
 [ext_resource path="res://World/food_bar.png" type="Texture" id=9]
 [ext_resource path="res://World/fire.png" type="Texture" id=10]
+[ext_resource path="res://Minotaur/Minotaur.tscn" type="PackedScene" id=11]
 
 [sub_resource type="TileSet" id=1]
 0/name = "tileset.png 0"
@@ -260,13 +261,22 @@ position = Vector2( 86.4331, -17.9874 )
 
 [node name="Players" type="YSort" parent="YSort"]
 
+[node name="Minotaur" parent="YSort" instance=ExtResource( 11 )]
+position = Vector2( -183.437, -199.652 )
+
+[node name="Minotaur2" parent="YSort" instance=ExtResource( 11 )]
+position = Vector2( 155.062, -47.0893 )
+
+[node name="Minotaur3" parent="YSort" instance=ExtResource( 11 )]
+position = Vector2( -110.139, 191.142 )
+
 [node name="Node2D" type="Node2D" parent="YSort"]
 
 [node name="Fire" type="AnimatedSprite" parent="YSort/Node2D"]
 position = Vector2( 0, -13.6756 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 20 )
-frame = 5
+frame = 3
 playing = true
 [connection signal="timeout" from="FuelBurnTimer" to="." method="_on_FuelBurnTimer_timeout"]
 [connection signal="timeout" from="FoodConsumptionTimer" to="." method="_on_FoodConsumptionTimer_timeout"]
