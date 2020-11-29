@@ -61,6 +61,7 @@ text = "Server IP:"
 margin_top = 14.0
 margin_right = 144.0
 margin_bottom = 38.0
+text = "127.0.0.1"
 
 [node name="Username" type="VBoxContainer" parent="Control/JoinDetails"]
 margin_top = 68.0
@@ -77,6 +78,7 @@ text = "Your username:"
 margin_top = 14.0
 margin_right = 144.0
 margin_bottom = 38.0
+text = "Player2"
 
 [node name="JoinControlButton" type="Button" parent="Control/JoinDetails"]
 margin_top = 118.0
