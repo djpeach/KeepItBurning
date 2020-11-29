@@ -197,6 +197,10 @@ autostart = true
 wait_time = 0.01
 autostart = true
 
+[node name="ScoreTimer" type="Timer" parent="."]
+wait_time = 60.0
+autostart = true
+
 [node name="Resources" type="Node2D" parent="."]
 
 [node name="FoodItem" parent="Resources" instance=ExtResource( 7 )]
@@ -246,3 +250,4 @@ position = Vector2( 86.4331, -17.9874 )
 position = Vector2( 0, -11 )
 [connection signal="timeout" from="FuelBurnTimer" to="." method="_on_FuelBurnTimer_timeout"]
 [connection signal="timeout" from="FoodConsumptionTimer" to="." method="_on_FoodConsumptionTimer_timeout"]
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]

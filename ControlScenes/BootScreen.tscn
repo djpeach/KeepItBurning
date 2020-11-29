@@ -28,15 +28,15 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="VBoxContainer"]
-margin_top = 12.0
+margin_top = 25.0
 margin_right = 99.0
-margin_bottom = 26.0
+margin_bottom = 39.0
 text = "Keep It Burning"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
-margin_top = 60.0
+margin_top = 73.0
 margin_right = 99.0
-margin_bottom = 134.0
+margin_bottom = 120.0
 custom_constants/separation = 7
 
 [node name="HostButton" type="Button" parent="VBoxContainer/VBoxContainer"]
@@ -49,12 +49,5 @@ margin_top = 27.0
 margin_right = 99.0
 margin_bottom = 47.0
 text = "Join"
-
-[node name="SinglePlayerButton" type="Button" parent="VBoxContainer/VBoxContainer"]
-margin_top = 54.0
-margin_right = 99.0
-margin_bottom = 74.0
-text = "Single Player"
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/HostButton" to="." method="_on_HostButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/JoinButton" to="." method="_on_JoinButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/VBoxContainer/SinglePlayerButton" to="." method="_on_SinglePlayerButton_pressed"]
