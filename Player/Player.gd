@@ -7,6 +7,11 @@ puppet var puppet_position = Vector2()
 var flipped = false
 onready var animState = $AnimationTree.get("parameters/playback")
 
+var invincible = false setget set_invincible
+
+func set_invincible(val):
+	invincible = val
+
 func _ready():
 	$AnimationTree.active = true
 	if is_network_master():
@@ -65,3 +70,10 @@ func _on_OverlapDetection_area_entered(area):
 	elif area.get_groups().has("interactable"):
 		assert(area.has_method("interact"))
 		area.interact(is_network_master)
+
+func _on_HurtBox_area_entered(hitbox):
+	if not invincible:
+		$BlinkPlayer.play("Blink")
+		print(hitbox.damage_value)
+		Globals.healthValue -= hitbox.damage_value
+		invincible = true

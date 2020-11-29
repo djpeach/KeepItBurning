@@ -13,7 +13,6 @@ func _on_HurtBox_area_entered(hitbox):
 		self.health -= hitbox.damage_value
 
 func set_health(val):
-	print('set health to ' + str(val))
 	health = val
 	if health <= 0:
 		queue_free()
