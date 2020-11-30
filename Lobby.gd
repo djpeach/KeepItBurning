@@ -93,8 +93,9 @@ remote func add_player(player_name):
 	emit_signal("refresh_players")
 
 remote func prepare_for_game(spawn_points, is_host):
-	var world = load("res://World/World.tscn").instance()
 	SceneManager.change_scene("res://World/World.tscn")
+	yield(SceneManager, "scene_changed")
+	var world = get_tree().current_scene
 	
 	# local player
 	var player_scene = load("res://Player/Player.tscn")

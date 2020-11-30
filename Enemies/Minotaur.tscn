@@ -1,11 +1,15 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Enemies/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Enemies/Minotaur.gd" type="Script" id=2]
 [ext_resource path="res://Enemies/Minotaur.png" type="Texture" id=3]
 [ext_resource path="res://CollisionShapes/HitBox.tscn" type="PackedScene" id=4]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="CapsuleShape2D" id=7]
+radius = 17.1224
+height = 39.5452
+
+[sub_resource type="Animation" id=1]
 resource_name = "attack"
 length = 1.2
 loop = true
@@ -34,7 +38,7 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 resource_name = "die"
 length = 1.5
 tracks/0/type = "value"
@@ -50,7 +54,7 @@ tracks/0/keys = {
 "values": [ 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 resource_name = "idle"
 length = 1.2
 loop = true
@@ -67,8 +71,7 @@ tracks/0/keys = {
 "values": [ 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "walk"
+[sub_resource type="Animation" id=4]
 length = 1.8
 loop = true
 tracks/0/type = "value"
@@ -84,7 +87,7 @@ tracks/0/keys = {
 "values": [ 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56 ]
 }
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=5]
 radius = 45.0
 height = 65.0
 
@@ -102,21 +105,26 @@ vframes = 10
 hframes = 6
 frame = 11
 
+[node name="Collider" parent="." index="1"]
+position = Vector2( 1.04987, 60.6299 )
+rotation = 1.5708
+shape = SubResource( 7 )
+
 [node name="AnimationPlayer" parent="." index="2"]
 autoplay = "idle"
-anims/attack = SubResource( 2 )
-anims/die = SubResource( 4 )
-anims/idle = SubResource( 5 )
-anims/walk = SubResource( 3 )
+anims/attack = SubResource( 1 )
+anims/die = SubResource( 2 )
+anims/idle = SubResource( 3 )
+anims/walk = SubResource( 4 )
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
 position = Vector2( 0, 8 )
-shape = SubResource( 1 )
+shape = SubResource( 5 )
 
 [node name="HitBox" parent="." index="5" instance=ExtResource( 4 )]
 monitorable = false
 collision_layer = 512
-damage_value = 2
+damage_value = 5
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
 position = Vector2( 80, 20 )

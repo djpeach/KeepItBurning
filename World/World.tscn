@@ -1,12 +1,10 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://World/tileset.png" type="Texture" id=1]
 [ext_resource path="res://World/bg.png" type="Texture" id=2]
 [ext_resource path="res://World/World.gd" type="Script" id=3]
-[ext_resource path="res://World/Logs.tscn" type="PackedScene" id=4]
 [ext_resource path="res://World/Rock.tscn" type="PackedScene" id=5]
 [ext_resource path="res://World/heart_bar.png" type="Texture" id=6]
-[ext_resource path="res://World/FoodItem.tscn" type="PackedScene" id=7]
 [ext_resource path="res://World/fuel_bar.png" type="Texture" id=8]
 [ext_resource path="res://World/food_bar.png" type="Texture" id=9]
 [ext_resource path="res://World/Fire.tscn" type="PackedScene" id=10]
@@ -38,6 +36,8 @@
 0/shape_one_way_margin = 0.0
 0/shapes = [  ]
 0/z_index = 0
+
+[sub_resource type="StyleBoxFlat" id=2]
 
 [node name="World" type="Node2D"]
 position = Vector2( 124.229, 101.723 )
@@ -179,10 +179,10 @@ __meta__ = {
 
 [node name="Score" type="Label" parent="CanvasLayer/Control"]
 anchor_top = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 1.0
 margin_top = -14.0
-margin_right = 106.0
+custom_styles/normal = SubResource( 2 )
 text = "Days Survived: 0"
 clip_text = true
 __meta__ = {
@@ -199,47 +199,15 @@ autostart = true
 
 [node name="ScoreTimer" type="Timer" parent="."]
 wait_time = 60.0
+autostart = true
+
 [node name="EnemySpawnTimer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
 
-[node name="Resources" type="Node2D" parent="."]
-
-[node name="FoodItem" parent="Resources" instance=ExtResource( 7 )]
-position = Vector2( -38.7954, -141.507 )
-
-[node name="FoodItem2" parent="Resources" instance=ExtResource( 7 )]
-position = Vector2( 20.9584, -145.817 )
-
-[node name="FoodItem3" parent="Resources" instance=ExtResource( 7 )]
-position = Vector2( -0.282379, -81.6153 )
-
-[node name="FoodItem4" parent="Resources" instance=ExtResource( 7 )]
-position = Vector2( 39.4509, -34.9588 )
-
-[node name="FoodItem5" parent="Resources" instance=ExtResource( 7 )]
-position = Vector2( 16.2732, -109.76 )
-
-[node name="FoodItem6" parent="Resources" instance=ExtResource( 7 )]
-position = Vector2( -51.6045, -44.8922 )
-
-[node name="FoodItem7" parent="Resources" instance=ExtResource( 7 )]
-position = Vector2( -87.7257, -125.111 )
-
-[node name="Logs" parent="Resources" instance=ExtResource( 4 )]
-position = Vector2( 16.1819, 55.9978 )
-
-[node name="Logs2" parent="Resources" instance=ExtResource( 4 )]
-position = Vector2( -135.546, -10.7813 )
-
-[node name="Logs3" parent="Resources" instance=ExtResource( 4 )]
-position = Vector2( -14.494, -107.292 )
-
-[node name="Logs4" parent="Resources" instance=ExtResource( 4 )]
-position = Vector2( 249.791, -15.5007 )
-
-[node name="Logs5" parent="Resources" instance=ExtResource( 4 )]
-position = Vector2( 145.493, -114.136 )
+[node name="WoodSpawnTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
 
 [node name="YSort" type="YSort" parent="."]
 
@@ -250,7 +218,14 @@ position = Vector2( 86.4331, -17.9874 )
 
 [node name="Fire" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 0, -11 )
+
+[node name="TopLeftBound" type="Position2D" parent="."]
+position = Vector2( -800, -366 )
+
+[node name="BottomRightBound" type="Position2D" parent="."]
+position = Vector2( 800, 534 )
 [connection signal="timeout" from="FuelBurnTimer" to="." method="_on_FuelBurnTimer_timeout"]
 [connection signal="timeout" from="FoodConsumptionTimer" to="." method="_on_FoodConsumptionTimer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_EnemySpawnTimer_timeout"]
+[connection signal="timeout" from="WoodSpawnTimer" to="." method="_on_WoodSpawnTimer_timeout"]

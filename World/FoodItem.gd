@@ -19,3 +19,7 @@ func pickup(is_network_master):
 
 remotesync func remove():
 	queue_free()
+
+
+func _on_SpoilTimer_timeout():
+	queue_free()
